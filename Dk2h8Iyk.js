@@ -25655,7 +25655,33 @@ class ResourceManager {
     }
   }
 }
-var define_GAME_REGIONS_default = {};
+var define_GAME_REGIONS_default = {
+    na: {
+        https: !0,
+        address: "usr.mathsiscoolfun.com:8001",
+        l10n: "index-north-america"
+    },
+    eu: {
+        https: !0,
+        address: "eur.mathsiscoolfun.com:8001",
+        l10n: "index-europe"
+    },
+    ru: {
+        https: !0,
+        address: "russia.mathsiscoolfun.com:8001",
+        l10n: "index-russia"
+    },
+    asia: {
+        https: !0,
+        address: "asr.mathsiscoolfun.com:8001",
+        l10n: "index-asia"
+    },
+    sa: {
+        https: !0,
+        address: "sa.mathsiscoolfun.com:8001",
+        l10n: "index-south-america"
+    }
+};
 class SiteInfo {
   constructor(config, localization) {
     this.config = config;
