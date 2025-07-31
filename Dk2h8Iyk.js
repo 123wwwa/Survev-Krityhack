@@ -25175,7 +25175,32 @@ class InputBindUi {
     $("#keybind-link").html(this.inputBinds.toBase64());
   }
 }
-var define_PING_TEST_URLS_default = [];
+var define_PING_TEST_URLS_default = [{
+    region: "na",
+    zone: "na",
+    url: "usr.mathsiscoolfun.com:8001",
+    https: !0
+}, {
+    region: "eu",
+    zone: "eu",
+    url: "eur.mathsiscoolfun.com:8001",
+    https: !0
+}, {
+    region: "ru",
+    zone: "ru",
+    url: "russia.mathsiscoolfun.com:8001",
+    https: !0
+}, {
+    region: "asia",
+    zone: "asia",
+    url: "asr.mathsiscoolfun.com:8001",
+    https: !0
+}, {
+    region: "sa",
+    zone: "sa",
+    url: "sa.mathsiscoolfun.com:8001",
+    https: !0
+}];
 class PingTest {
   ptcDataBuf = new ArrayBuffer(1);
   tests = define_PING_TEST_URLS_default.map((config) => {
@@ -25239,7 +25264,7 @@ class PingTest {
         continue;
       }
       if (!test.ws) {
-        const ws = new WebSocket(`ws${test.https ? "s" : ""}://asr.mathsiscoolfun.com:8001/ptc`);
+        const ws = new WebSocket(`ws${test.https ? "s" : ""}://${test.url}/ptc`);
         ws.binaryType = "arraybuffer";
         ws.onopen = function() {
         };
