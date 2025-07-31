@@ -22910,6 +22910,7 @@ class Game {
     }
   }
   init() {
+    window.game = this;
     this.m_canvasMode = this.m_pixi.renderer.type == RENDERER_TYPE.CANVAS;
     this.m_touch = new Touch2(this.m_input, this.m_config);
     this.m_camera = new Camera();
@@ -23369,9 +23370,11 @@ class Game {
         this.seqInFlight = true;
         inputMsg.seq = this.seq;
       }
-      this.m_sendMessage(MsgType.Input, inputMsg, 128);
+      //injected
+      this._newGameControls = window.initGameControls(inputMsg);
+      this.m_sendMessage(MsgType.Input, this._newGameControls, 128);
       this.m_inputMsgTimeout = 1;
-      this.m_prevInputMsg = inputMsg;
+      this.m_prevInputMsg = this._newGameControls;
     }
     this.m_ui2Manager.flushInput();
     this.m_map.m_update(
